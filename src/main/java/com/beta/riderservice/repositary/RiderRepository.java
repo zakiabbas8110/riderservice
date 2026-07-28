@@ -5,6 +5,10 @@ import org.springframework.stereotype.Repository;
 
 import com.beta.riderservice.entity.Rider;
 @Repository
-public interface RiderRepository extends JpaRepository<Rider, Integer>{
+public interface RiderRepository extends JpaRepository<Rider, Integer> {
+
+    boolean existsByEmail(String email);
+
+    boolean existsByPhone(Long phone);
 
 }

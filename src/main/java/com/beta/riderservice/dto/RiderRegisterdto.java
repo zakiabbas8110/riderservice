@@ -1,21 +1,48 @@
 package com.beta.riderservice.dto;
 
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
+import jakarta.validation.constraints.PositiveOrZero;
+
 public class RiderRegisterdto {
 
+	@NotBlank(message = "Name is required")
     private String name;
+
+    @NotNull(message = "Phone number is required")
     private Long phone;
+
+    @Email(message = "Invalid email")
+    @NotBlank(message = "Email is required")
     private String email;
+
+    @PositiveOrZero(message = "Wallet balance cannot be negative")
     private Double walletBalance;
+
+    @NotBlank(message = "License number is required")
     private String drivingLicenseNumber;
+
+    @NotBlank(message = "Status is required")
     private String status;
 
     
+    @NotBlank(message = "Vehicle number is required")
     private String vehicleNumber;
-    private String vehicleType;
-    private String vehicleModel;
-    private String vehicleColor;
-    private Integer seatingCapacity;
 
+    @NotBlank(message = "Vehicle type is required")
+    private String vehicleType;
+
+    @NotBlank(message = "Vehicle model is required")
+    private String vehicleModel;
+
+    @NotBlank(message = "Vehicle color is required")
+    private String vehicleColor;
+
+    @NotNull(message = "Seating capacity is required")
+    @Positive(message = "Seating capacity must be greater than 0")
+    private Integer seatingCapacity;
     
     public RiderRegisterdto() {
     }
